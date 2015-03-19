@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Web Performance</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides"> 
+			    <section>
+			        <h1>Web Performance</h1>
+                    <aside class="notes">
+                        Good morning my names Matt. At little bit about me I studied graphic design. </br>Companies I have worked for in the past are
+                        Kiddicare.com, Johnston Press who run local newspapers including Peterboroughtoday.com and play.com. </br>Currently I work as a software engineer at comparethemarket.</br>
+                        Can I have a show of hands if anyone here go who went to Deacons School? </br>
+                        Today I am going to be talking about web performance.
+                    </aside>
+			    </section>
+                <section data-background="lib/images/snail.jpg">
+                    <h2>Too many sites are too slow</h2>
+                    <aside class="notes">
+                        - Lots of websites today are to slow.
+                    </aside>
+                </section>
+                <section data-background="lib/images/angry_laptop.jpg">
+                    <h2>This makes users angry</h2>
+                    <aside class="notes">
+                        - And slow sites lead to a bad user experience
+                    </aside>
+                </section>
+                <section>
+                    <h2>Speed matters?</h2>
+                    <img src="./imgs/wallmark.png" alt="" width="50%">
+                    <aside class="notes">
+                        Why does any of this matter. Walmart.com for every second of improvement they experienced a 2% conversion.</br>
+                        - User negativity towards a brand, Tesco did some user testing on this and for one group they delivered a really fast experience and
+                        they got some positive feedback to the brand, then they throttled the website and the comments became more negative towards their brand.
+                    </aside>
+                </section>
+                <section>
+                    <h2>User Perception</h2>
+                    <img src="./imgs/perception.png" alt="">
+                    <aside class="notes">
+                        These numbers here are hard coded we have no control over them anything over 3 seconds is considered not to be working.</br>
+                        "40% will abandon a web page if it takes more than three seconds to load" - Akamai Study
+                    </aside>
+                </section>
+			    <section>
+			        <h2>Performance + Great UX = Happy Users</h2>
+			        <img src="lib/images/happyuser.jpg"/>
+                    <aside class="notes">
+                        So a fast website and a great user experience makes a happy user!
+                    </aside>
+			    </section>
+                <section>
+                    <h2>Set Goals</h2>
+                    <p>"Usable within 10 seconds on GPRS connections" - BBC News</p>
+                    <p>"SpeedIndex under 1000" - Paul Irish</p>
+                </section>
+                <section>
+                    <h2>Load something useful first</h2>
+                    <aside class="notes">
+                        Make sure you primary content are the first things on the page you do not want user attention focusing non primary content.
+                        Defer all non-essential content.
+                    </aside>
+                </section>
+			    <section>
+			        <h2>Test on a slow connection</h2>
+			        <img src="lib/images/config.png"/>
+                    <aside class="notes">
+                        Always text on slow connections by throttling. There are lots of tool to simulate slow connections and its useful to see how you site behaves on different speeds.
+                    </aside>
+			    </section>
+			    <section>
+			         <a target="blank" href="https://developers.google.com/speed/pagespeed/insights/?utm_source=blogspot&utm_campaign=mobile_ux&url=http%3A%2F%2Fwww.peterborough.ac.uk%2F&tab=mobile"><img src="lib/images/pagespeed.png"/></a>
+			         <aside class="notes">
+                         Go to tab.
+                         Google Page Speed insight use this tool to validate a build
+                     </aside>
+                </section>
+			    <section>
+			        <h2><a target="blank" href="http://www.webpagetest.org/result/150316_B9_1196//"><img src="lib/images/webpagespeed.png"/></a></h2>
+                    <aside class="notes">
+                        Go to tab.
+                        WebpageTest is a tool written by Patrick Meenan he currently works at Google he built this tool around 2008 and again this is a great tool to use
+                    </aside>
+                </section>
+			    <section>
+			        <h2>Desktop Cable</h2><iframe src="http://www.webpagetest.org/video/view.php?id=150316_B9_1196.1.0&embed=1&width=520&height=432" width="628" height="532"></iframe>
+                    <aside class="notes">
+                        One of the features WPT gives you is to be able to view a video of a website loading up and at different connection speeds, browsers and devices
+                    </aside>
+                </section>
+			    <section>
+			        <h2 style="float:left;">Mobile 3G</h2><iframe src="http://www.webpagetest.org/video/view.php?id=150316_RY_11M9.1.0&embed=1&width=640&height=680" width="680" height="740" style="margin-top:-40px;""></iframe>
+			    </section>
+			    <section>
+			        <h2><a target="blank" href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Speed Index</a></h2>
+                    <img width="500px" src="lib/images/pagespeedindex.png"/>
+                    <aside class="notes">
+                        Speed Index is an important metric as it measure the time all visible parts of the page are displayed. Its measured in milliseconds and is reliant on the screen size or viewport
+                    </aside>
+                </section>
+			    <section>
+			        <h2>Different ways to measure web performance</h2>
+			        <ul>
+			            <li class="fragment">First view
+			                <ul>
+			                    <li>This is the view of the page for someone who has never been to the site before (or has cleared their cache since their last visit)</li>
+			                </ul>
+			            </li>
+			            <li class="fragment">Repeat view
+			                <ul>
+			                    <li>This is the view of a page if a user goes only to the page, closes their browser, and then reopens the browser and goes only to that page again as the first page they hit on the site.</li>
+			                </ul>
+			            </li>
+			            <li class="fragment">Flow view
+			                <ul>
+			                    <li>This is the view of the page when a customer has previously visited at least one other page on the site.</li>
+			                </ul>
+			            </li>
+			        </ul>
+			    </section>
+			    <section>
+			        <h2>Critical Rendering Path</h2>
+			        <ul>
+			            <li class="fragment">It is lot's of work for a browser to deliver a fast experience</li>
+			            <li class="fragment">Optimising for performance we need to understanding what happens in when a browser when it receives the HTML, CSS, and JavaScript and renders them into pixels this is known as the <strong>critical rendering path</strong></li>
+			        </ul>
+                    <aside class="notes">
+                        -The critical rendering path is the journey a browsers take to display a page.</br>
+                        -Its important to understand whats happening in the browser to be able to optimise for it.</br>
+                        -So what happens when the browser receives the HTML, CSS and JavaScript.
+                    </aside>
+			    </section>
+			    <section>
+			        <h2>Constructing the Object Model</h2>
+                    <p>HTML markup is transformed into a Document Object Model (DOM)</p>
+			        <ul>
+			            <li class="fragment">
+                            <img src="lib/images/dom-tree.png" width="450"/>
+                        </li>
+			        </ul>
+                    <aside class="notes">
+                        1.HTML is converted into the Document Object Model.</br>
+                    </aside>
+			    </section>
+                <section>
+                    <p>CSS markup is transformed into a CSS Object Model (CSSOM)</p>
+                    <ul>
+                        <li class="fragment">
+                            <img src="lib/images/cssom-tree.png" width="650"/>
+                        </li>
+                    </ul>
+                    <aside class="notes">
+                        2.CSS is converted into the CSS object Model.</br>
+                    </aside>
+                </section>
+			    <section>
+			        <p>Render-tree construction, Layout, and Paint</p>
+			        <ul>
+                        <li class="fragment">
+                            <img src="lib/images/render-tree-construction.png" width="650"/>
+                        </li>
+			        </ul>
+                    <aside class="notes">
+                        3.Combine DOM and CSSOM to build the Render Tree.</br>
+                    </aside>
+			    </section>
+			    <section>
+			        <h2>What about JavaScript?</h2>
+			        <ul>
+			            <li class="fragment">Where JavaScript is placed within a document is important</li>
+			            <li class="fragment">JavaScript can modify the DOM and CSSOM</li>
+			            <li class="fragment">JavaScript execution is delayed until the CSSOM is ready</li>
+			            <li class="fragment">JavaScript blocks DOM construction unless explicitly declared as async</li>
+			        </ul>
+                    <aside class="notes">
+                        1.JavaScript placement in the page is important</br>
+                        2.JavaScript can modify both the DOM and CSSOM</br>
+                        3.CSSOM construction blocks JavaScript execution</br>
+                        4.JavaScript blocks DOM construction unless deferred or loading asynchronously</br>
+                    </aside>
+			    </section>
+			    <section>
+			        <h2>Things browsers can animate cheaply</h2>
+			        <h3>Postition, Scale, Rotation and Opacity</h3>
+			        <img width="400px" src="lib/images/cheap-operations.jpg"/>
+			        <img width="500px" src="lib/images/devtools-waterfall.jpg"/>
+                    <aside class="notes">
+                       CSS transforms and opacity animations are easy for the browser to handle
+                    </aside>
+			    </section>
+			    <section>
+                    <h2>Layer Creation</h2>
+                    <p style="text-align: left;">Examples</p>
+                    <ul style="float:left;font-size: 0.6em;">
+                        <li><a href="http://www.html5rocks.com/en/tutorials/speed/layers/basic.html" target="blank">A single-layer page.</a></li>
+			            <li><a href="http://www.html5rocks.com/en/tutorials/speed/layers/onelayer.html" target="blank">An element in its own layer.</a></li>
+			        </ul>
+                    <aside class="notes">
+                        This is called graphical hardware acceleration and uses the GPU (Graphics Processing Unit).
+                        Go to tab.
+                    </aside>
+			    </section>
+			    <section>
+			        <h2 style="float:left;">CSS animation top/left vs transform in slow-mo.</h2><iframe width="420" height="315" src="http://www.youtube.com/embed/-62uPWUxgcg" frameborder="0" allowfullscreen></iframe>
+                    <aside class="notes">
+                        Here is short video on the left is an animation using the CPU and on the right an animation using the GPU.
+                    </aside>
+                </section>
+			    <section>
+			        <h2>Emulation</h2>
+			        <img width="500" src="lib/images/chrome-emulation.png"/>
+                    <aside class="notes">
+                        Go to tab.
+                    </aside>
+			    </section>
+			    <section>
+			        <h2>Prototype</h2>
+			        <ul>
+			            <li>Rapid Prototype and Create a working front-end quickly</li>
+			            <li>Your site will always look different from Photoshop</li>
+			            <li>Responsive or Adaptive design changes everything</li>
+			        </ul>
+			    </section>
+			    <section>
+			        <p>Some things coming up and already in use to help in performance gains</p>
+			    </section>
+                <section>
+                    <h2>Task runners</h2>
+                    <p>Take advantage of task runners there are some great tools being produced to help with performance gains</p>
+                    <p><a href="https://github.com/addyosmani/critical-path-css-tools">Critical Path CSS Tool</a></p>
+                    <aside class="notes">
+                        Automate performance you can minify, combine, build image sprite, compress images and this way it becomes part of the build process and not a manual task you have to do each time you relase.
+                    </aside>
+                </section>
+                <section>
+                    <h2>GZIP + CDN</h2>
+                    <p>GZIP you content on the server.</p>
+                    <p>Use a CDN to deliver your content to users.</p>
+                    <aside class="notes">
+                        For text based files GZIP performs best and can compress a file in a range of 70 - 90 % of it original site.</br>
+                        Use a CDN a content delivery network is basically lots of servers that can delivery content to users rapidly.</br>
+                        At CTM we use Akamai who claim they are only ever a single hop away from 90% of internet users.
+                    </aside>
+                </section>
+			    <section>
+			        <h2>Picture element</h2>
+			        <p>Now is the W3C HTML specification, Firefox 33+ and Chrome 38+ support the picture element. This is the future of responsive images.</p>
+                    <pre><code><picture> 
+  <source media="(min-width: 45em)" srcset="large.jpg">
+  <source media="(min-width: 32em)" srcset="med.jpg">
+  <img src="small.jpg" alt="This is awsome!">
+</picture></code></pre>
+                    <aside class="notes">
+                        The ability to serve up different images to different screens has now been standardised and it part of W3C specification.
+                    </aside>
+			    </section>
+			    <section>
+			        <h2>will-change property</h2>
+			        <p>Hardware Acceleration - when certain operations such as 3D transforms are performed on an element on a page, that element is moved to its own layer. This allows it to render independently from the rest of the page and can be drawn on later.</p>
+			        <p>Moving an element to a new layer is an expensive operation which can delay the start of a transform animation by a noticeable fraction of a second.</p> 
+                    <pre><code>will-change: transform;</code></pre>
+                    <aside class="notes">
+                        The will-change property informs the browser an element is going to change so it moves it to a new layer ready for animation.
+                    </aside>
+			    </section>
+			    <section>
+			        <h2>Summary</h2>
+			        <ul>
+			            <li>Validate with PageSpeed Insights and WebPageTest</li>
+			            <li>Test on a slow connection</li>
+			            <li>Understand the critical rendering path</li>
+                        <li>Only animate opacity and transform, avoid painting and layout changes</li>
+			            <li>Use emulations and the real device</li>
+			        </ul>
+			    </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
